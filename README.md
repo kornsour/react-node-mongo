@@ -23,6 +23,9 @@ Full stack web app using React, Node.js, and MongoDB
 - Heroku may use an older version of node that will break the app
 - To set the node and npm version for Heroku to use, we add the "engines" section to the package.json in the server directory
 - We update the "scripts" section in package.json to tell Heroku how to start the app
+- Download the Heroku CLI and create an app: heroku create
+- Add heroku git link: git remote add heroku https://git.heroku.com/blah.git
+- Push changes: git push heroku main
 
 ### Environment Variables
 
