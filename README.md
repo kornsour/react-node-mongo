@@ -4,11 +4,16 @@ Full stack web app using React, Node.js, and MongoDB
 
 ## Tech Stack
 
-- Node
+- NodeJS
   - Javascript runtime used to execute code outside of the browser
-- Express
+- ExpressJS
   - Library that runs in the Node runtime
   - Has helpers to make dealing with HTTP traffic easier
+- PassportJS
+  - Libarary Components
+    - passport: General helpers for handling auth in Express apps
+    - passport strategy: Helpers for authenticating with one very specific method
+      - email/password, Google, Facebook, etc
 
 ## Setup
 
@@ -17,6 +22,8 @@ Full stack web app using React, Node.js, and MongoDB
 - npm init
 - npm install express --save
 - npm install dotenv --save
+- npm install passport --save
+- npm install passport-google-oauth20 --save
 
 ### Heroku
 
