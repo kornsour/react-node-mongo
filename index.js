@@ -1,32 +1,18 @@
-require("dotenv").config();
-
+const mongoose = require("mongoose");
 const express = require("express");
-const passport = require("passport");
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
+require("dotenv").config();
+// need to require User model before passport
+// so that we're not trying to use it before we define it
+require("./models/User");
+require("./services/passport");
+
+mongoose.connect(process.env.mongoURI);
 
 const app = express();
 
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: process.env.googleClientID,
-      clientSecret: process.env.googleClientSecret,
-      callbackURL: "/auth/google/callback",
-    },
-    (accessToken) => {
-      console.log(accessToken);
-    }
-  )
-);
-
-app.get(
-  "/auth/google",
-  passport.authenticate("google", {
-    scope: ["profile", "email"],
-  })
-);
-
-app.get("auth/google/callback", passport.authenticate("google"));
+// Require statement returns a function
+// Which we immediately invoke with app
+require("./routes/authRoutes")(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);

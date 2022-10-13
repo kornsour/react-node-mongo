@@ -24,6 +24,8 @@ Full stack web app using React, Node.js, and MongoDB
 - npm install dotenv --save
 - npm install passport --save
 - npm install passport-google-oauth20 --save
+- npm install nodemon --save
+- npm install mongoose --save
 
 ### Heroku
 
