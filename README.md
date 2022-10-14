@@ -22,10 +22,15 @@ Full stack web app using React, Node.js, and MongoDB
 - npm init
 - npm install express --save
 - npm install dotenv --save
-- npm install passport --save
+- npm install passport@0.5 --save
+  - currently a bug with latest release
 - npm install passport-google-oauth20 --save
 - npm install nodemon --save
 - npm install mongoose --save
+- npm install cookie-session --save
+  - with cookie-session, we're storing everything in the cookie
+  - use express-session if there is more than 4kb of data that needs to be stored in the session
+    - express-session only holds a session id that would be used to pull the rest of the info from a data store we set up
 
 ### Heroku
 
