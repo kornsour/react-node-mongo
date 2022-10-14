@@ -31,6 +31,7 @@ Full stack web app using React, Node.js, and MongoDB
   - with cookie-session, we're storing everything in the cookie
   - use express-session if there is more than 4kb of data that needs to be stored in the session
     - express-session only holds a session id that would be used to pull the rest of the info from a data store we set up
+- npm install concurrently --save
 
 ### Heroku
 
