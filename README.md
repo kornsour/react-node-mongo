@@ -33,6 +33,12 @@ Full stack web app using React, Node.js, and MongoDB
     - express-session only holds a session id that would be used to pull the rest of the info from a data store we set up
 - npm install concurrently --save
 
+### Frontend
+
+- npm install redux react-redux react-router-dom@5
+- npm install materialize-css
+- npm install axois redux-thunk
+
 ### Heroku
 
 - Heroku may use an older version of node that will break the app
@@ -45,3 +51,15 @@ Full stack web app using React, Node.js, and MongoDB
 ### Environment Variables
 
 example.env files have been added to show which environment variables need to be set for the application
+
+### React and Redux Flow
+
+- React Component
+
+  - calls an Action Creator
+    - that returns an Action
+      - which is sent to reducers
+        - That update state in store
+          - State is then sent back to components, causing them to rerender
+
+- Redux Thunk allows us to directly pass an action to the dispatch function instead of having to return it

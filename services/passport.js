@@ -32,21 +32,19 @@ passport.use(
       // todo: figure out if this is ok from a security standpoint
       proxy: true,
     },
-    (accessToken, refreshToken, profile, done) => {
-      User.findOne({ googleId: profile.id }).then((existingUser) => {
-        if (existingUser) {
-          // we already have a record with the given google id
-          done(null, existingUser);
-        } else {
-          // don't have a record for this user, make a new record
-          //creating a new model instance
-          new User({ googleId: profile.id })
-            .save()
-            // second model instance but represents the same user
-            // this instance is from the promise callback and will be most up to date
-            .then((user) => done(null, user));
-        }
-      });
+    async (accessToken, refreshToken, profile, done) => {
+      const existingUser = await User.findOne({ googleId: profile.id });
+
+      if (existingUser) {
+        // we already have a record with the given google id
+        return done(null, existingUser);
+      }
+
+      // don't have a record for this user, make a new record
+      // creating a new model instance that represents the same user
+      // this instance is from the promise callback and will be most up to date
+      const user = await new User({ googleId: profile.id }).save();
+      done(null, user);
     }
   )
 );
