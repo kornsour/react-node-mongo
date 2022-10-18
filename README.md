@@ -35,6 +35,7 @@ Full stack web app using React, Node.js, and MongoDB
 
 ### Frontend
 
+- npm install http-proxy-middleware
 - npm install redux react-redux react-router-dom@5
 - npm install materialize-css
 - npm install axois redux-thunk
