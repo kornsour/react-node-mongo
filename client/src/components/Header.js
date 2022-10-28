@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 // Writing a class based component instead of a function based one
 // because we expect to have a few helper functions for deciding what to render in the header
@@ -31,7 +32,13 @@ class Header extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          <a className="left brand-logo">Emaily</a>
+          <Link
+            // Will either go to sign in or dashboard depending if user is signed in
+            to={this.props.auth ? "/surveys" : "/"}
+            className="left brand-logo"
+          >
+            Emaily
+          </Link>
           <ul className="right">{this.renderContent()}</ul>
         </div>
       </nav>

@@ -53,6 +53,8 @@ Full stack web app using React, Node.js, and MongoDB
 
 example.env files have been added to show which environment variables need to be set for the application
 
+_NOTE_ Google ClientID for dev enviornment has a redirect URI using port 5001
+
 ### React and Redux Flow
 
 - React Component
@@ -64,3 +66,13 @@ example.env files have been added to show which environment variables need to be
           - State is then sent back to components, causing them to rerender
 
 - Redux Thunk allows us to directly pass an action to the dispatch function instead of having to return it
+
+## Billing Best Practices
+
+- We are bad at security
+  - Never accept raw credit card numbers
+  - Never store credit card numbers
+  - Always use an outside payment processor
+- Billing is hard
+  - Possible to avoid monthly payments/multiple plans?
+  - Fraud and chargebacks are a pain
