@@ -2,5 +2,4 @@
 npm install
 
 # Install frontend dependencies
-cd client
-npm install
+npm install --prefix ./client
